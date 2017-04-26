@@ -18,7 +18,8 @@ I read a lot of different papers on how to install and run this on WindowsXP and
 - **Knightmare2600 Unix Guide:** https://github.com/knightmare2600/ShadowBrokers
 - **Sheila Berta Paper:** https://www.exploit-db.com/docs/41897.pdf
 
-After you install everything you can use fuzzbunch doing the following:
+## How to run?
+**After you install** everything you can use fuzzbunch doing the following:
 ```
 export WINEPREFIX=$HOME/.wine-fuzzbunch
 cd $HOME/.wine-fuzzbunch/drive_c/fuzzbunch-debian/windows
