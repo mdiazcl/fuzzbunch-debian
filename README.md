@@ -36,6 +36,7 @@ apt install wine winbind winetricks
 wine regedit.exe
 ```
 **Select:** HKEY_CURRENT_USER\Environment
+
 **Right Click** Add String Value
 ```
 Type: PATH
