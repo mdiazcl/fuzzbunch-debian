@@ -12,7 +12,6 @@ I read a lot of different papers on how to install and run this on WindowsXP and
 
 ## Contact Info:
 - **Email:** miguel.diaz {at} mdiazlira.com 
-- **Telegram:** @mdiazcl
 - https://twitter.com/mdiazcl
 
 ## Original Work and special thanks
