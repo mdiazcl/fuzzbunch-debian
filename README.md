@@ -5,6 +5,9 @@ This particular version of Fuzzbunch has some personal fixes that I found over t
  - Fuzzbunch.xml edited to be able to work on Wine
  - Fixed "listeningposts error" when running fb.py
 
+## Motivation
+I read a lot of different papers on how to install and run this on WindowsXP and a few running on Unix, none of them on Kali (Maybe there are a bunch, but I didn't do much research to be honest. All of the they needed to fix some files, move folders, or download files from different websites, I just wanted to make it simple, quick and accessible for everyone only by typing a few bash commands and a git clone!
+
 **Contact Info**: miguel.diaz {at} mdiazlira.com | telegram @mdiazcl
 
 ## Original Work and special thanks
@@ -32,7 +35,8 @@ apt install wine winbind winetricks
 ```
 wine regedit.exe
 ```
-Select: HKey Current User\Environment (Right Click -> Add String Value)
+**Select:** HKEY_CURRENT_USER\Environment
+**Right Click** Add String Value
 ```
 Type: PATH
 Value: c:\\windows;c:\\windows\\system;C:\\Python26;C:\\fuzzbunch-debian\\windows\\fuzzbunch
@@ -69,11 +73,10 @@ winetricks python26
 
 > :warning: You may have problems pressing the "Next" button. If that's the case you have to install wine32 by doing the following (it may take a while):
 
-```
-dpkg --add-architecture i386 && apt-get update && apt-get install wine32
-```
+> dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 
-## Step 5: Fuzzbunch Configure
+
+## Step 5: Run fuzzbunch
 
 Switch to our fuzzbunch working folder
 
@@ -91,3 +94,8 @@ python fb.py
 That's it, Fuzzbunch it's up and running!
 Use it by your own responsability and for internal and authorized only purposes!
 ![alt text](http://i.imgur.com/2jA6qzT.png)
+
+***
+# FAQ
+**Q: When I type on fuzzbunch it looks all screw-up, it repeats . What's Going on?? Did I do something wrong?**
+**R:** To be honest? I don't know, I think it's an issue with wine running STDIN from python. Don't worry about, just type and press enter and everything should work smoothly. If you know how to fix this, let me know!
