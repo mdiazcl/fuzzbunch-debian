@@ -20,7 +20,8 @@ I read a lot of different papers on how to install and run this on WindowsXP and
 
 After you install everything you can use fuzzbunch doing the following:
 ```
-cd ~/.wine/drive_c/fuzzbunch-debian/windows
+export WINEPREFIX=$HOME/.wine-fuzzbunch
+cd $HOME/.wine-fuzzbunch/drive_c/fuzzbunch-debian/windows
 wine cmd.exe
 python fb.py
 ```
