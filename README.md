@@ -1,4 +1,4 @@
-# fuzzbunch-debian deployment guide
+# Kali/fuzzbunch-debian deployment guide
 NSA/Fuzzbunch deployment for kali linux - Intructions.
 
 This version of Fuzzbunch has some personal fixes:
@@ -7,19 +7,21 @@ This version of Fuzzbunch has some personal fixes:
 
 **Contact Info**: miguel.diaz {at} mdiazlira.com | telegram @mdiazcl
 
-# Original Work
+## Original Work and special thanks
 - **ShadowBroker:** https://github.com/misterch0c/shadowbroker.git
 - **Knightmare2600 Guide:** https://github.com/knightmare2600/ShadowBrokers
 - **Sheila Berta Paper:** https://www.exploit-db.com/docs/41897.pdf
 
+***
+
 # How to Install
-**1.- Install wine (Remember to be able to run wine32)**
+## Step 1: Install wine (Remember to be able to run wine32)
 ```
 apt update
 apt install wine winbind winetricks
 ```
 
-**2.- Add python and fuzzbunch to PATH**
+## Step 2: Add python and fuzzbunch to PATH
 ```
 wine regedit.exe
 ```
@@ -30,7 +32,7 @@ Value: c:\\windows;c:\\windows\\system;C:\\Python26;C:\\fuzzbunch-debian\\window
 ```
 ![alt text](http://i.imgur.com/3HHUqBe.png)
 
-**3.- Get files from this GIT**
+## Step 3: Get files from GIT
 ```
 cd ~/.wine/drive_c
 git clone https://github.com/mdiazcl/fuzzbunch-debian.git
@@ -53,18 +55,19 @@ fuzzbunch-debian/
     └── touches
 ```
 
-**4.- Install Python2.6 and pywin32 (winetrick will install both) **
+## Step 4: Install Python2.6 and pywin32 (winetrick will install both)
 ```
 winetricks python26
 ```
 
-:warning: You may have problems pressing the "Next" button. If that's the case you have to install wine32 by doing the following (it may take a while):
+> :warning: You may have problems pressing the "Next" button. If that's the case you have to install wine32 by doing the following (it may take a while):
 
 ```
 dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 ```
 
-**5.- Fuzzbunch Configure **
+## Step 5: Fuzzbunch Configure
+
 Switch to our fuzzbunch working folder
 
 ```
@@ -79,4 +82,5 @@ python fb.py
 ```
 
 That's it, Fuzzbunch it's up and running!
+Use it by your own responsability and for internal and authorized only purposes!
 ![alt text](http://i.imgur.com/2jA6qzT.png)
