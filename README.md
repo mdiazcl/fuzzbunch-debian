@@ -1,14 +1,17 @@
 # Kali/fuzzbunch-debian deployment guide
 NSA/Fuzzbunch deployment for kali linux - Intructions. This version was designed to work under kali linux (to enhance our personal pentesting tools) using wine (32bits version) since Fuzzbunch uses python26 and WindowsXP. This is very useful if you want to mix it with your Empire/Metasploit arsenal.
 
-This particular version of Fuzzbunch has some personal fixes that I found over the internet:
+**This particular version of Fuzzbunch has some personal fixes that I found over the internet:**
  - Fuzzbunch.xml edited to be able to work on Wine
  - Fixed "listeningposts error" when running fb.py
 
 ## Motivation
 I read a lot of different papers on how to install and run this on WindowsXP and a few running on Unix, none of them on Kali (Maybe there are a bunch, but I didn't do much research to be honest. All of the they needed to fix some files, move folders, or download files from different websites, I just wanted to make it simple, quick and accessible for everyone only by typing a few bash commands and a git clone!
 
-**Contact Info**: miguel.diaz {at} mdiazlira.com | telegram @mdiazcl
+## Contact Info:
+- **Email:** miguel.diaz {at} mdiazlira.com 
+- **Telegram:** @mdiazcl
+- **Twitter:** mdiazcl
 
 ## Original Work and special thanks
 - **ShadowBroker:** https://github.com/misterch0c/shadowbroker.git
