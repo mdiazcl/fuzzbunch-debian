@@ -57,6 +57,7 @@ git clone https://github.com/mdiazcl/fuzzbunch-debian.git
 That will get you something like this:
 ```
 fuzzbunch-debian/
+├── installers
 ├── logs
 └── windows
     ├── Bin
