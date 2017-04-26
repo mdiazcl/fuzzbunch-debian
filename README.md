@@ -35,6 +35,19 @@ apt update
 apt install wine winbind winetricks
 ```
 
+Since fuzzbunch uses windows32 libraries, we are going to setup our own wine32 environment, also this will prevent to break any wine application that you are already using.
+
+```
+# Install wine32
+dpkg --add-architecture i386 && apt-get update && apt-get install wine32
+
+# Start a wine32 environment
+WINEPREFIX="$HOME/.wine-fuzzbunch" WINEARCH=win32 wine wineboot
+
+# Change WINEPREFIX for this session (modify your .bashrc accordingly if you want to make it permanent)
+export WINEPREFIX=$HOME/.wine-fuzzbunch
+```
+
 ## Step 2: Add python and fuzzbunch to PATH
 ```
 wine regedit.exe
@@ -50,7 +63,7 @@ Value: c:\\windows;c:\\windows\\system;C:\\Python26;C:\\fuzzbunch-debian\\window
 
 ## Step 3: Get files from GIT
 ```
-cd ~/.wine/drive_c
+cd $HOME/.wine-fuzzbunch/drive_c
 git clone https://github.com/mdiazcl/fuzzbunch-debian.git
 ```
 
@@ -76,21 +89,13 @@ fuzzbunch-debian/
 ```
 winetricks python26
 ```
-
-> :warning: You may have problems pressing the "Next" button. If that's the case you have to install wine32 by doing the following (it may take a while):
-
-> dpkg --add-architecture i386 && apt-get update && apt-get install wine32
-
-> If after this you are still having issues you can manually install each module from the installer folder.
-
-
+> If you are having issues, Install each module (python-2.6 and pywin32-219.win32.py2.6) from the installer folder.
 
 ## Step 5: Run fuzzbunch
-
 Switch to fuzzbunch folder
 
 ```
-cd ~/.wine/drive_c/fuzzbunch-debian/windows
+cd $HOME/.wine-fuzzbunch/drive_c/fuzzbunch-debian/windows
 wine cmd.exe
 ```
 
