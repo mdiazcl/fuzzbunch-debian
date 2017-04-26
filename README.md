@@ -15,12 +15,13 @@ I read a lot of different papers on how to install and run this on WindowsXP and
 - **Knightmare2600 Unix Guide:** https://github.com/knightmare2600/ShadowBrokers
 - **Sheila Berta Paper:** https://www.exploit-db.com/docs/41897.pdf
 
-After you install everything you can use fuzzbunch using, if someone wants to collaborate making a script to automatize everything, please do a pull request!
+After you install everything you can use fuzzbunch doing the following:
 ```
 cd ~/.wine/drive_c/fuzzbunch-debian/windows
 wine cmd.exe
 python fb.py
 ```
+if someone wants to collaborate making a script to automatize everything, please do a pull request!
 
 ***
 
