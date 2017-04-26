@@ -79,7 +79,7 @@ winetricks python26
 
 ## Step 5: Run fuzzbunch
 
-Switch to our fuzzbunch working folder
+Switch to fuzzbunch folder
 
 ```
 cd ~/.wine/drive_c/fuzzbunch-debian/windows
@@ -98,6 +98,6 @@ Use it by your own responsability and for internal and authorized only purposes!
 
 ***
 # FAQ
-**Q: When I type on fuzzbunch it looks all screw-up, it repeats . What's Going on?? Did I do something wrong?**
+**Q: When I type on fuzzbunch it looks all screw-up. What's Going on? Did I do something wrong?**
 
 **A:** To be honest? I don't know, I think it's an issue with wine running STDIN from python. Don't worry about, just type and press enter and everything should work smoothly. If you know how to fix this, let me know!
