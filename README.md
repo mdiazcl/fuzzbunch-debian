@@ -1,5 +1,5 @@
 # Kali/fuzzbunch-debian deployment guide
-NSA/Fuzzbunch deployment for kali linux - Intructions. This version was designed to work under kali linux (to enhance our personal pentesting tools) using wine (32bits version) since Fuzzbunch uses python26 and WindowsXP. This is very usefull if you want to mix it with your Empire/Metasploit arsenal.
+NSA/Fuzzbunch deployment for kali linux - Intructions. This version was designed to work under kali linux (to enhance our personal pentesting tools) using wine (32bits version) since Fuzzbunch uses python26 and WindowsXP. This is very useful if you want to mix it with your Empire/Metasploit arsenal.
 
 This particular version of Fuzzbunch has some personal fixes that I found over the internet:
  - Fuzzbunch.xml edited to be able to work on Wine
