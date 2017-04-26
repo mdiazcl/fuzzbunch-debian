@@ -1,0 +1,37 @@
+# uncompyle6 version 2.9.10
+# Python bytecode 2.7 (62211)
+# Decompiled from: Python 3.6.0b2 (default, Oct 11 2016, 05:27:10) 
+# [GCC 6.2.0 20161005]
+# Embedded file name: __init__.py
+ERR_SUCCESS = 0
+ERR_INVALID_PARAMETER = 4294967287
+ERR_UNSUPPORTED_PLATFORM = 4294967286
+ERR_EXCEPTION = 4294967285
+ERR_GET_LOCK_FAILED = 4294967282
+ERR_MDL_CREATE_FAILED = 4294967276
+ERR_MDL_LOCK_FAILED = 4294967275
+ERR_SETUP_FAILED_1 = 4294967272
+ERR_SETUP_FAILED_2 = 4294967271
+ERR_SETUP_FAILED_3 = 4294967270
+ERR_SETUP_FAILED_4 = 4294967269
+ERR_SETUP_FAILED_5 = 4294967268
+ERR_EXPLOIT_FAILED = 4294967264
+ERR_EXPLOIT_NOT_AVAILABLE = 4294967263
+ERR_EXCEPTION_HANDLING_REQUIRED = 4294967262
+ERR_UNKNOWN = 4294967261
+errorStrings = {ERR_INVALID_PARAMETER: 'Invalid parameter(s)',
+   ERR_UNSUPPORTED_PLATFORM: 'Unsupported platform',
+   ERR_EXCEPTION: 'Exception thrown',
+   ERR_GET_LOCK_FAILED: 'Failed to get privilege lock',
+   ERR_MDL_CREATE_FAILED: 'Failed to create MDL',
+   ERR_MDL_LOCK_FAILED: 'Failed to lock MDL',
+   ERR_SETUP_FAILED_1: 'Setup failed (stage 1)',
+   ERR_SETUP_FAILED_2: 'Setup failed (stage 2)',
+   ERR_SETUP_FAILED_3: 'Setup failed (stage 3)',
+   ERR_SETUP_FAILED_4: 'Setup failed (stage 4)',
+   ERR_SETUP_FAILED_5: 'Setup failed (stage 5)',
+   ERR_EXPLOIT_FAILED: 'Exploit failed',
+   ERR_EXPLOIT_NOT_AVAILABLE: 'Given exploit not available',
+   ERR_EXCEPTION_HANDLING_REQUIRED: 'Exception handling is required and was not available',
+   ERR_UNKNOWN: 'Unknown error'
+   }
