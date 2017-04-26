@@ -99,4 +99,4 @@ Use it by your own responsability and for internal and authorized only purposes!
 # FAQ
 **Q: When I type on fuzzbunch it looks all screw-up, it repeats . What's Going on?? Did I do something wrong?**
 
-**R:** To be honest? I don't know, I think it's an issue with wine running STDIN from python. Don't worry about, just type and press enter and everything should work smoothly. If you know how to fix this, let me know!
+**A:** To be honest? I don't know, I think it's an issue with wine running STDIN from python. Don't worry about, just type and press enter and everything should work smoothly. If you know how to fix this, let me know!
