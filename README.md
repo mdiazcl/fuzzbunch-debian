@@ -80,6 +80,9 @@ winetricks python26
 
 > dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 
+> If after this you are still having issues you can manually install each module from the installer folder.
+
+
 
 ## Step 5: Run fuzzbunch
 
