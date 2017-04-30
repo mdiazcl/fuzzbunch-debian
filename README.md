@@ -117,4 +117,5 @@ Use it by your own responsability and for internal and authorized only purposes!
 # FAQ
 **Q: When I type on fuzzbunch it looks all screw-up. What's Going on? Did I do something wrong?**
 
-**A:** To be honest? I don't know, I think it's an issue with wine running STDIN from python. Don't worry about, just type and press enter and everything should work smoothly. If you know how to fix this, let me know!
+**A:** FIXED by [@Alamot](https://github.com/Alamot), Thanks!
+Make sure you have the HEAD version of this git. It was fixed at commit [@655eae5](https://github.com/mdiazcl/fuzzbunch-debian/commit/655ea5e421f233788ce8f64605971ca19f4e2b83).
