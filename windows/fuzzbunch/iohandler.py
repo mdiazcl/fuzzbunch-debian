@@ -14,6 +14,7 @@ from util import variable_replace
 MAX_OUTPUT_ROWS = 5
 MAX_PROMPT_ECHO_LEN = 50
 
+'''
 try:
     try:
         import readline
@@ -22,6 +23,8 @@ try:
     HAVE_READLINE = True
 except:
     HAVE_READLINE = False
+'''
+HAVE_READLINE = False
 
 mswindows = (sys.platform == "win32")
 
