@@ -1,0 +1,117 @@
+#!/bin/bash
+
+
+####
+# Totally automatized , times during sleep cycles may vary depending on your system
+# I will be including this script into my full module on my Kali Script
+# https://github.com/kawaxi/Kali-Setup
+# Enjoy!
+#
+####
+
+apt -y -qq install wine winbind winetricks xdotool
+dpkg --add-architecture i386 && apt-get update && apt-get -y -qq install wine32
+
+WINEPREFIX="$HOME/.wine-fuzzbunch" WINEARCH=win32 wine wineboot
+
+cd $HOME/.wine-fuzzbunch/drive_c
+git clone https://github.com/mdiazcl/fuzzbunch-debian.git
+
+echo -e ' Modifying Windows registry'
+export WINEPREFIX=$HOME/.wine-fuzzbunch
+grep -q '^"PATH"=.*C:\\\\Python26' ~/.wine-fuzzbunch/system.reg \
+|| sed -i '/^"PATH"=/ s_"$_;C:\\\\Python26"_' ~/.wine-fuzzbunch/system.reg
+
+grep -q '^"PATH"=.*C:\\\\fuzzbunch-debian\\\\windows\\\\fuzzbunch' ~/.wine-fuzzbunch/system.reg \
+|| sed -i '/^"PATH"=/ s_"$_;C:\\\\fuzzbunch-debian\\\\windows\\\\fuzzbunch"_' ~/.wine-fuzzbunch/system.reg
+
+#### Method 1 , this one is more efficient.
+
+echo ' INSTALLING MANUALLY'
+
+export WINEPREFIX=$HOME/.wine-fuzzbunch
+cd $HOME/.wine-fuzzbunch/drive_c/fuzzbunch-debian/installers
+
+nohup wine 'cmd.exe ' &
+sleep 2s
+msiexec /a python-2.6.msi & HEXPID=$!
+sleep 3s
+
+echo -e "${ORANGE} [i]${ORANGE} Our PID for Python is:$HEXPID "
+sleep 2s
+#
+HEXWINID=$(xdotool search --any --pid ${HEXPID} --name "Python 2.6.2" | tail -1 )
+echo -e "${ORANGE} [i]${ORANGE} We found our window ID for Python  : $HEXWINID \n"
+
+xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+sleep 1s
+HEXWINID=$(xdotool search --any --pid ${HEXPID} --name "Python 2.6.2" | tail -1 )
+xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+sleep 1s
+
+HEXWINID=$(xdotool search --any --pid ${HEXPID} --name "Python 2.6.2" | tail -1 )
+xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+sleep 6s
+HEXWINID=$(xdotool search --any --pid ${HEXPID} --name "Python 2.6.2" | tail -1 )
+xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+
+
+export WINEPREFIX=$HOME/.wine-fuzzbunch
+cd $HOME/.wine-fuzzbunch/drive_c/fuzzbunch-debian/installers
+wine "pywin32-219.win32-py2.6.exe" & HEXPID=$!
+
+echo -e "${ORANGE} [i]${ORANGE} Our PID for Python is:$HEXPID "
+sleep 2s
+HEXWINID=$(xdotool search --any --pid ${HEXPID} --name "Setuyp pywin32-219" | tail -1 )
+echo -e "[i] We found our window ID for Python : $HEXWINID \n"
+
+
+
+xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+sleep 6s
+xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers --delay 100 alt+F4
+
+
+echo ' the program has finished'
+
+cat ~/.wine-fuzzbunch/system.reg | grep PATH
+
+
+#### WineTricks METHOD
+# export WINEPREFIX=$HOME/.wine-fuzzbunch
+# nohup winetricks python26 & HEXPID=$!
+# #--- Initiating Hexchat and saving the pid.
+# sleep 30s
+# echo -e "${ORANGE} [i]${ORANGE} Our PID for Python is:$HEXPID "
+#
+#
+# HEXWINID=$(xdotool search --any --pid ${HEXPID} --name "Python 2.6.2" | tail -1 )
+# echo -e "${ORANGE} [i]${ORANGE} We found our window ID for Python PID : $HEXWINID \n"
+#
+#
+# xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+# sleep 1s
+# HEXWINID=$(xdotool search --any --pid ${HEXPID} --name "Python 2.6.2" | tail -1 )
+# xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+# sleep 1s
+# HEXWINID=$(xdotool search --any --pid ${HEXPID} --name "Python 2.6.2" | tail -1 )
+# xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+# sleep 10s
+# HEXWINID=$(xdotool search --any --pid ${HEXPID} --name "Python 2.6.2" | tail -1 )
+# xdotool windowactivate --sync ${HEXWINID} key --clearmodifiers Return
+#
+#
+# sleep 7s
+# xdotool key --clearmodifiers Return
+#
+# xdotool key --clearmodifiers Return
+#
+# xdotool key --clearmodifiers Return
+# sleep 9s
+# xdotool key --clearmodifiers --delay 100 alt+F4
+#
+# cat ~/.wine-fuzzbunch/system.reg | grep PATH
+#
+exit 0
