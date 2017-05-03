@@ -1,0 +1,127 @@
+#!/bin/bash
+
+###########
+#Functions#
+###########
+
+##ChRoot
+function rootchecker {
+if [ $UID -ne 0 ]; then
+    echo -e " \033[1;33mThis program must be run as root. Enable it (sudo), and restart the script.\033[0m"
+    sleep 3
+  else echo -e " \033[0;32mYou've got root, which means you are good to go!\033[0m"
+    fi
+}
+
+##Pause
+function pause() {
+	read -sn 1 -p "Press any key to continue..."
+}
+
+##Installer
+function fuz {
+  echo
+  echo -e " \033[1;33mInstalling wine, winbind, and winetricks.\033[0m"
+  apt-get update ; apt-get install wine ; apt-get install winbind ; apt-get install winetricks ; echo
+  pause ; clear
+
+  echo -e " \033[1;33mInstalling Wine32.\033[0m"
+  dpkg --add-architecture i386 ; apt-get update ; apt-get install wine32 ; echo
+  pause ; clear
+
+  echo -e " \033[1;33mSetting up the environment in your $HOME dir.\033[0m"
+  WINEPREFIX="$HOME/.wine-fuzzbunch" WINEARCH=win32 wine wineboot ; echo
+  pause ; clear
+
+  echo "Would you like to change the WINEPREFIX variable 'permanantly'? (RECCOMENDED) Y/N"
+  read yn
+  echo
+  if [[ $yn = Y || $param = y ]] ; then
+    echo "\033[1;33mEditing your .bashrc to account for changes.\033[0m"
+    echo "export WINEPREFIX=$HOME/.wine-fuzzbunch" >> $HOME/.bashrc
+    export WINEPREFIX=$HOME/.wine-fuzzbunch
+    pause ; clear
+  else
+    echo "Okay, in that case, you will have to run 'export WINEPREFIX=$HOME/.wine-fuzzbunch' every time you boot up your machine or make a new Wine environment."
+    echo "If you don't want this, then you can just add the line to the end of .bashrc manually."
+    echo "I will run the command once for you now."
+    export WINEPREFIX=$HOME/.wine-fuzzbunch
+    pause ; clear
+    fi
+
+  echo "Unfortunately, I am unable to do the next step for you. However, I will guide you through it."
+  echo "You will need to run 'wine regedit' in another terminal. Follow the steps I've given you."
+  echo -e "
+1.) Select the folder: '\033[0;32mHKEY_CURRENT_USER\033[0m'
+    Under that folder, select: '\033[0;32mEnvironment\033[0m'
+
+2.) Right Click in the registry editor.
+    Select '\033[0;32mNew\033[0m', then '\033[0;32mString Value\033[0m'
+
+3.) In the text box that just appeared, type '\033[0;32mPATH\033[0m'
+    Right click the item you just created and click '\033[0;32mModify\033[0m'
+
+Under the field labeled '\033[0;32mValue Data\033[0m' type (or copy /paste):
+
+\033[0;32mc:\.\windows;c:\.\windows\.\system;C:\.\Python26;C:\.\.fuzzbunch-debian\.\windows\.\.fuzzbunch\033[0m
+
+Without the periods. (Sorry for the inconvience. It's for cross compatability between shells)
+
+Once you're finished, click '\033[0;32mRegistry\033[0m' in the upper left hand corner, and click '\033[0;32mExit\033[0m' to exit the registry editor. Then press any key in this terminal to continue.
+"
+  echo
+  pause ; clear
+
+  echo "Now, we will grab & install the needed files from github."
+  git clone https://github.com/mdiazcl/fuzzbunch-debian.git $HOME/.wine-fuzzbunch/drive_c/fuzzbunch-debian ; echo ; pause ; clear
+
+  echo "Time to install Python2.6 and pywin32 into our Wine environment. Just keep clicking next."
+  winetricks python26 ; echo ; pause ; clear
+  echo "In order to run Fuzzbunch, you must run: \033[0;32mcd $HOME/.wine-fuzzbunch/drive_c/fuzzbunch-debian/windows\033[0m"
+  echo
+
+  touch How_to_run_fb ; echo "Type: export WINEPREFIX=$HOME/.wine-fuzzbunch \n \nCD into: $HOME/.wine-fuzzbunch/drive_c/fuzzbunch-debian/windows \n \nRun: wine cmd.exe then fb.py" >> How_to_run_fb
+
+  echo "Then, type '\033[0;32mwine cmd.exe\033[0m'. Once in the windows CMD environment, run '\033[0;32mfb.py\033[0m'. I've taken the liberty to create a file in the current directory labled 'How_to_run_fb'"
+  echo
+  echo -e " \033[0;35m Hurray! You've just intalled Fuzzbunch on your Linux PC. Press any key to return to the title and run it."
+  echo ; pause
+}
+
+#######
+#Title#
+#######
+
+function title {
+	clear
+	echo -e "
+\033[0;35m==================================================\033[0m
+\033[1;31m***===----..(\033[0mScript by: 13l@cKW1D0VV\033[1;31m)..----===***\033[0m
+\033[1;32m
+	    +_=_+_=_+_=_+_=_+_=_+_=_+
+	    |     W1d0w'5 Debian    |
+	    |   FuzzBunch Installer |
+	    +_=_+_=_+_=_+_=_+_=_+_=_+
+\033[0m
+\033[1;31m..----===***(\033[0mScript by: 13l@cKW1D0VV\033[1;31m)***===----..\033[0m
+\033[0;35m==================================================\033[0m"
+  rootchecker
+
+  echo
+  select sel in "Install FuzzBunch" "Exit Script"; do
+  case $sel in
+
+      "Install FuzzBunch")
+      fuz
+      clear ;;
+
+      "Exit Script")
+      clear && exit 0 ;;
+
+    * )
+esac
+break
+done
+}
+
+title
