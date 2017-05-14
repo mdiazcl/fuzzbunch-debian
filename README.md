@@ -59,7 +59,8 @@ wine regedit.exe
 
 **Right Click** Add String Value
 ```
-Type: PATH
+Type: String
+Name: PATH
 Value: c:\\windows;c:\\windows\\system;C:\\Python26;C:\\fuzzbunch-debian\\windows\\fuzzbunch
 ```
 ![alt text](http://i.imgur.com/3HHUqBe.png)
