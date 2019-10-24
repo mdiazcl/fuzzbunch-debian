@@ -8,7 +8,7 @@ NSA/Fuzzbunch deployment for kali linux - Intructions. This version was designed
  - Fixed "listeningposts error" when running fb.py
 
 ## Motivation
-I read a lot of different papers on how to install and run this on WindowsXP and a few running on Unix, none of them on Kali (Maybe there are a bunch, but I didn't do much research to be honest). All of the they needed to fix some files, move folders, or download files from different websites, I just wanted to make it simple, quick and accessible for everyone only by typing a few bash commands and a git clone!
+I read a lot of different papers on how to install and run this on WindowsXP and a few running on Unix, none of them on Kali (Maybe there are a bunch, but I didn't do much research, to be honest). All of the they needed to fix some files, move folders, or download files from different websites, I just wanted to make it simple, quick and accessible for everyone only by typing a few bash commands and a git clone!
 
 ## Contact Info:
 - **Email:** miguel.diaz {at} mdiazlira.com 
